@@ -23,11 +23,23 @@ class AcGameMenu {
         this.$multi = this.$menu.find('.ac-game-menu-field-item-multi');
         this.$settings = this.$menu.find('.ac-game-menu-field-item-settings');
     }
-}
-class AcGame {
-    constructor(id) {
-        this.id = id;
-        this.$ac_game = $('#' + id);
-        this.menu = new AcGameMenu(this);
+
+    start(){
+        this.add_listening_events();
+    }
+
+    add_listening_events(){
+        let outer = this;
+        this.$single_mode.click(function(){
+            outer.hide();
+            outer.root.playground.show();
+        });
+        this.$multi_mode.click(function(){
+            console.log("click multi mode");
+        });
+        this.$settings.click(function(){
+            console.log("click settings");
+        });
+
     }
 }
